@@ -14,21 +14,6 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet"/>
 
 
-    <!-- Latest compiled and minified CSS -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css"> -->
-
-    <!-- Latest compiled and minified JavaScript -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script> -->
-
-    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script> -->
-
-
-    <!-- Optional theme -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
-
-    <!-- Latest compiled and minified JavaScript -->
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
 
     <title>My Task Planner</title>
   </head>
@@ -38,17 +23,11 @@
       
       <nav class="navbar navbar-expand-lg navbar-dark"> <a class="navbar-brand mr-5" href="JavaScript: location.reload(true);" data-abc="true">To-do App</a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon border-bottom border-dark"></span> </button>
         <div class="collapse navbar-collapse" id="navbarColor02">
-          <!-- <form onsubmit="event.preventDefault()" class="form-inline my-2 my-lg-0 ml-5"> <input class="form-control mr-sm-2" type="text" placeholder="Search"> <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button> </form> -->
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item"><a class="button" href="#personalisedForm2" data-toggle="modal" data-target="#personalisedForm2" id="personalisedFormButton">Personalise Page!</a></li>
-              <!-- <li class="nav-item"><a class="button" href="#personalisedForm" id="personalisePage">Personalise Page!</a></li> -->
-              <!-- <li class="nav-item active"> <a class="nav-link" href="#" data-abc="true">Home <span class="sr-only">(current)</span></a> </li>
-              <li class="nav-item"> <a class="nav-link" href="#" data-abc="true">contact</a> </li>
-              <li class="nav-item"> <a class="nav-link" href="#" data-abc="true">Pricing</a> </li>
-              <li class="nav-item"> <a class="nav-link" href="#" data-abc="true">Social</a> </li> -->
-            </ul>
-            <div class="userName mr-3"><i class="fa fa-bell bell-icon ml-4"></i></div>
-          </div>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="personalisedFormButton" href="#personalisedForm" id="personalisedFormButton" >Personalise Page!</a></li>
+          </ul>
+          <div class="userName mr-3"><i class="fa fa-bell bell-icon ml-4"></i></div>
+        </div>
       </nav>
           
           </div>
@@ -58,34 +37,6 @@
     
 
 
-    <!-- Modal -->
-    <!-- <form class="personalisedForm2">
-      <div class="modal fade" id="personalisedForm2" tabindex="-1" role="dialog" aria-labelledby="personalisedFormTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="personalisedFormTitle">Personalise & make it yours!</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="form-group">
-                <label for="personalisedName">Name</label>
-                <input type="text" class="form-control" id="personalisedName" placeholder="Name">
-              </div>
-              <div class="form-group">
-                <label for="personalisedCity">City</label>
-                <input type="text" class="form-control" id="personalisedCity" placeholder="City">
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="submit" class="personalisedButton" id="personalisedButton">Save</button>
-            </div>
-            </div>
-        </div>
-      </div>
-    </form> -->
 
     <!-- Modal -->
     <form class="personalisedForm2">
@@ -113,9 +64,11 @@
     
 
   <form class="personalisedForm">
+    <!-- <div class="overlay" style="display:none"> -->
     <div class="overlay" style="display:none">
       <div class="popup"  id="popup">
-        <button id="close">&times;</button>
+        <!-- <div onclick="CloseModal()" class="CloseIcon">&#10006;</div> -->
+        <button type="button" id="close">&times;</button>
         <h2>Personalise and make it yours</h2>
         <input type="text" class="type-2" id="personalisedName" placeholder="Name" />
         <input type="text" class="type-2" id="personalisedCity" placeholder="City" />
@@ -128,44 +81,9 @@
 
 
     <div class="content">
-      <!-- Task button -->
-      <!-- Button trigger modal -->
-      <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        Add New Task
-      </button> -->
 
       <br>
 
-      <!-- <div class="wrapper">
-        <div class="left-side">
-         <div class="side-wrapper">
-          <div class="side-title">Tasks</div>
-          <div class="side-menu">
-           <a href="#">
-            Today
-           </a>
-           <a href="#">
-            Upcoming
-            <span class="notification-number updates">(3)</span>
-           </a>
-          </div>
-         </div>
-         <div class="side-wrapper">
-          <div class="side-title">Projects</div>
-          <div class="side-menu">
-           <a href="#">
-            Personal
-           </a>
-           <a href="#">
-            Work
-           </a>
-           <a href="#">
-            Shopping
-           </a>
-          </div>
-        </div>
-        </div>
-      </div> -->
       
       
 
@@ -297,126 +215,6 @@
                                   </div>
                                   <!-- end -->
 
-                                    <!-- Greeting Message -->
-                                    <!-- <li class="list-group-item">
-                                      <h5>Welcome! 😎</h5>
-                                      <p>Start adding tasks by clicking "Add to List" button</p>
-                                    </li> -->
-
-                                    <!-- List item 1 -->
-                                    <!-- <li class="list-group-item">
-                                      <div class="todo-indicator bg-warning"></div>
-                                      <div class="widget-content p-0">
-                                          <div class="widget-content-wrapper">
-                                              <div class="widget-content-left mr-2">
-                                                  <div class="custom-checkbox custom-control"> <input class="custom-control-input" id="exampleCustomCheckbox12" type="checkbox"><label class="custom-control-label" for="exampleCustomCheckbox12">&nbsp;</label> </div>
-                                              </div>
-                                              <div class="widget-content-right">
-                                                  <div class="widget-heading">Set up meeting <div class="badge badge-danger ml-2" id="newPriorityLabel">Priority 1</div>
-                                                  </div>
-                                                  <div class="widget-subheading"><small>Assigned To: Joanna</small></div>                                                    
-                                              <div class="d-flex w-100 mb-3 justify-content-between">
-                                                <small><i>In progress</i></small>
-                                                <small>Due: 06/07/2021</small>
-                                              </div>
-                                              <p>This is description. Lorem ipsum dolor s elit.?</p> -->
-
-                                              <!-- <p> -->
-                                                <!-- <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#editTaskButtonModal">
-                                                  Edit
-                                                </button> -->
-                                                <!-- Delete Button trigger modal -->
-                                                <!-- <button type="button" class="delete btn btn-info btn-md" data-toggle="modal" data-target="#deleteTaskModal">
-                                                  Delete
-                                                </button> -->
-                                              <!-- </p> -->
-                                              
-
-
-                                              
-
-                                  <!-- </li> -->
-
-                                  <!-- List item 2 -->
-                                  <!-- <li class="list-group-item stroked" id="accordionTwo">
-                                      <div class="todo-indicator bg-focus"></div>
-                                      <div class="widget-content p-0">
-                                          <div class="widget-content-wrapper">
-                                              <div class="widget-content-left mr-2">
-                                                  <i class="fa fa-sm fa-grip-vertical"></i>
-                                                  <div class="custom-checkbox custom-control">
-                                                    <input class="custom-control-input" id="exampleCustomCheckbox1" type="checkbox">
-                                                    <label class="custom-control-label" for="exampleCustomCheckbox1" >&nbsp;</label>
-                                                  </div>
-                                              </div>
-                                              <div class="widget-content-right">
-                                                <div class="widget-heading">
-                                                  
-                                                  <div class="task-title">
-                                                  Call customers<div class="badge badge-warning ml-2">Priority 2</div>
-                                                  </div>
-                                                  <span class="blank"> </span>
-                                                  <div class="button-icons">
-                                                    <i class="fa fa-edit fa-lg edit-icon icons" data-toggle="modal" data-target="#editTaskButtonModal"></i>
-                                                    <i class="fa fa-trash fa-lg trash-icon icons" data-toggle="modal" data-target="#deleteTaskModal"></i> 
-                                                    <i class="fa fa-chevron-down fa-md icons rotate" id="downArrow" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"></i>
-                                                  </div>
-                                                </div>
-                                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionTwo">
-                                                  <div class="widget-subheading"><small>Assigned To: Sujatha</small></div>
-                                                  <div class="d-flex w-100 mb-3 justify-content-between">
-                                                    <small><i>In progress</i></small>
-                                                    <small>Due: 06/07/2021</small>
-                                                  </div>
-                                                  <div class="content">
-                                                    <p>This is description.Lorem ipsum dolor sit amet consectetur Lorem i Lorem ipsum dolor sit amet consectetur adipisicing elit.?</p> 
-                                                    </p>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </li> -->
-
-                                  <!-- List item 3 -->
-                                  <!-- <li class="list-group-item" id="accordionThree">
-                                      <div class="todo-indicator bg-primary"></div>
-                                      <div class="widget-content p-0">
-                                          <div class="widget-content-wrapper">
-                                              <div class="widget-content-left mr-2">
-                                                  <div class="custom-checkbox custom-control"><input class="custom-control-input" id="exampleCustomCheckbox4" type="checkbox"><label class="custom-control-label" for="exampleCustomCheckbox4">&nbsp;</label></div>
-                                              </div>
-                                              <div class="widget-content-right">
-                                                <div class="widget-heading">
-                                                  <div class="task-title">
-                                                  Orientation
-                                                  </div>
-                                                  <span class="blank"></span>
-                                                  <div class="button-icons">
-                                                    <i class="fa fa-edit fa-lg edit-icon icons" data-toggle="modal" data-target="#editTaskButtonModal"></i>
-                                                    <i class="fa fa-trash fa-lg trash-icon icons" data-toggle="modal" data-target="#deleteTaskModal"></i>
-                                                    <i class="fa fa-chevron-down fa-md icons rotate" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><span></span></i>
-                                                  </div>
-                                                </div>
-                                                  
-                                                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionThree">
-                                                    <div class="widget-subheading"><small>Assigned To: Bhavani</small></div>
-                                                    <div class="d-flex w-100 mb-3 justify-content-between">
-                                                      <small><i>Done<div class="badge badge-pill badge-info ml-2">UPDATED</div></i></small>
-                                                      <small></small>
-                                                    </div>
-                                                    <p>This is description. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipisicing elit.?</p>
-                                                    <p>
-                                                      
-                                                    </p>
-                                                  </div> -->
-                                                  
-                                              <!-- <div class="widget-content-right"> <button class="border-0 btn-transition btn btn-outline-success"> <i class="fa fa-check"></i></button> <button class="border-0 btn-transition btn btn-outline-danger"> <i class="fa fa-trash"></i> </button> </div> -->
-                                          <!-- </div>
-                                      </div> -->
-                                  <!-- </li> -->
-                                  
-                              <!-- </ul> -->
                           </div>
                       </div>
                   </perfect-scrollbar>
@@ -658,7 +456,6 @@
 
 
         </div>
-        <!-- <div class="widget-content-right"> <button class="border-0 btn-transition btn btn-outline-success"> <i class="fa fa-check"></i></button> <button class="border-0 btn-transition btn btn-outline-danger"> <i class="fa fa-trash"></i> </button> </div> -->
       </div>
     </div>
   </div>

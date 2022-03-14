@@ -30,17 +30,6 @@ taskManager.load();
 // Render the loaded tasks to the page
 taskManager.render();
 
-// Collapsible Task - Rotate down arrow when clicked
-
-// $(".rotate").click(function () {
-//     $(this).toggleClass("down");
-// })
-
-
-// const downArrow = document.getElementById('downArrow');
-// const collapseFunc = () => downArrow.classList.toggle("down");
-
-// downArrow.addEventListener('click', collapseFunc);
 
 // scroll to top button
 //Get the button
@@ -108,11 +97,9 @@ const isBetween = (length, min, max) => length < min || length > max ? false : t
 const isMinLength = (length, min) => length < min ? false : true;
 
 // The following isMaxLength() function returns false if the length argument is more than the max argument:
-// const isBetween = (length, min, max) => length < min || length > max ? false : true;
 const isMaxLength = (length, max) => length > max ? false : true;
 
 // The following inPast() function returns false if date has passed
-// const isPast = (firstDate, secondDate) => firstDate.setHours(0,0,0,0) > secondDate.setHours(0,0,0,0) ? false : true;
 const isPast = (firstDate, secondDate) => firstDate > secondDate ? false : true;
 
 // showError functions to show error / success
@@ -229,25 +216,6 @@ const newCheckDueDate = () => {
 };
 
 
-// const newValidateTaskForm = function() {
-
-//     // validate form
-//     let isTaskNameValid = newCheckTaskName(),
-//         isTaskDescriptionValid = newCheckTaskDescription(),
-//         isAssignedToValid = newCheckAssignedTo(),
-//         isListNameValid = newCheckListName(),
-//         isDueDateValid = newCheckDueDate();
-    
-//     // submit to server if the form is valid
-//     let isFormValid = isTaskNameValid && 
-//         isTaskDescriptionValid && isAssignedToValid &&
-//         isListNameValid && isDueDateValid;
-
-    
-//     if(isFormValid) {
-//         addNewTaskForm.submit();
-//     }
-// };
 
 // resetting form's error message and border colour
 addNewTaskForm.addEventListener('reset', function() {
@@ -451,23 +419,18 @@ addToListTaskForm.addEventListener('reset', function() {
     
     addListTaskNameEl.parentElement.querySelector('small').innerText = '';
     addListTaskNameEl.parentElement.classList.remove('error', 'success');
-    // addListTaskNameEl.parentElement.classList.add('error');
     
     addListTaskDescriptionEl.parentElement.querySelector('small').innerText = '';
     addListTaskDescriptionEl.parentElement.classList.remove('error', 'success');
-    // addListTaskDescriptionEl.parentElement.classList.add('error');
     
     addListAssignedToEl.parentElement.querySelector('small').innerText = '';
     addListAssignedToEl.parentElement.classList.remove('error', 'success');
-    // addListAssignedToEl.parentElement.classList.add('error');
     
     addListTaskDueDateEl.parentElement.querySelector('small').innerText = '';
     addListTaskDueDateEl.parentElement.classList.remove('error', 'success');
-    // addListTaskDueDateEl.parentElement.classList.add('error');
     
     addListTaskStatusEl.parentElement.querySelector('small').innerText = '';
     addListTaskStatusEl.parentElement.classList.remove('error', 'success');
-    // addListTaskStatusEl.parentElement.classList.add('error');
     
 });
 
@@ -476,7 +439,6 @@ addToListTaskForm.addEventListener('submit', function(event) {
     event.preventDefault();
 
     
-    // addListValidateTaskForm();
 
     // validate form
     let isTaskNameValid = addListCheckTaskName(),
@@ -499,14 +461,7 @@ addToListTaskForm.addEventListener('submit', function(event) {
         const dueDate = capitalizeFirstLetter(addListTaskDueDateEl.value);
         let status = capitalizeFirstLetter(addListTaskStatusEl.value);
         const priority = capitalizeFirstLetter(addListTaskPriorityEl.value);
-        // let id;
 
-        // setting default value of status to 'To Do'
-        // if (status) {
-        //     status = status;
-        // } else {
-        //     status = 'To Do'
-        // }
         // Adding task to the taskManager
         taskManager.addTask(name, description, assignedTo, dueDate, status, priority);
         
@@ -529,19 +484,14 @@ addToListTaskForm.addEventListener('submit', function(event) {
 
         // reset border colour to red
         addListTaskNameEl.parentElement.classList.remove('error', 'success');
-        // addListTaskNameEl.parentElement.classList.add('error');
         
         addListTaskDescriptionEl.parentElement.classList.remove('error', 'success');
-        // addListTaskDescriptionEl.parentElement.classList.add('error');
         
         addListAssignedToEl.parentElement.classList.remove('error', 'success');
-        // addListAssignedToEl.parentElement.classList.add('error');
         
         addListTaskDueDateEl.parentElement.classList.remove('error', 'success');
-        // addListTaskDueDateEl.parentElement.classList.add('error');
         
         addListTaskStatusEl.parentElement.classList.remove('error', 'success');
-        // addListTaskStatusEl.parentElement.classList.add('error');
         
         // close modal form
         $('#addToListModal').modal('hide'); // or $('#IDModal').modal('toggle');
@@ -574,7 +524,6 @@ function checkboxDeleteFunction(event) {
         // Render the tasks
         taskManager.render();
 
-        // parentTask.setAttribute('class', 'stroked');
         // console.log(parentTask); // to check on parentTask
     }
 
@@ -645,20 +594,6 @@ function checkboxDeleteFunction(event) {
 
                 editTaskForm.submit();
             }
-            // task.name = editTaskNameEl.value;
-            // task.description = editTaskDescriptionEl.value;
-            // task.assignedTo = editAssignedToEl.value;
-            // task.dueDate = editTaskDueDateEl.value;
-            // task.status = editTaskStatusEl.value;
-            // task.priority = editTaskPriorityEl.value;
-    
-            // console.log(taskManager.tasks); // to check tasks
-    
-            // // Save the tasks to localStorage
-            // taskManager.save();
-    
-            // // Render the tasks
-            // taskManager.render();
         
         }
     });
@@ -785,7 +720,6 @@ const editValidateTaskForm = function() {
 
 
     if(isFormValid) {
-        // editTaskForm.submit();
         task.name = capitalizeFirstLetter(editTaskNameEl.value);
         task.description = capitalizeFirstLetter(editTaskDescriptionEl.value);
         task.assignedTo = capitalizeFirstLetter(editAssignedToEl.value);
@@ -801,7 +735,6 @@ const editValidateTaskForm = function() {
         // Render the tasks
         taskManager.render();
 
-        // editTaskForm.submit();
     }
 };
 
@@ -810,27 +743,19 @@ editTaskForm.addEventListener('reset', function() {
     
     editTaskNameEl.parentElement.querySelector('small').innerText = '';
     editTaskNameEl.parentElement.classList.remove('error', 'success');
-    // editTaskNameEl.parentElement.classList.add('error');
     
     editTaskDescriptionEl.parentElement.querySelector('small').innerText = '';
     editTaskDescriptionEl.parentElement.classList.remove('error', 'success');
-    // editTaskDescriptionEl.parentElement.classList.add('error');
     
     editAssignedToEl.parentElement.querySelector('small').innerText = '';
     editAssignedToEl.parentElement.classList.remove('error', 'success');
-    // editAssignedToEl.parentElement.classList.add('error');
     
-    // editTaskListNameEl.parentElement.querySelector('small').innerText = '';
-    // editTaskListNameEl.parentElement.classList.remove('error', 'success');
-    // editTaskListNameEl.parentElement.classList.add('error');
     
     editTaskDueDateEl.parentElement.querySelector('small').innerText = '';
     editTaskDueDateEl.parentElement.classList.remove('error', 'success');
-    // editTaskDueDateEl.parentElement.classList.add('error');
     
     editTaskStatusEl.parentElement.querySelector('small').innerText = '';
     editTaskStatusEl.parentElement.classList.remove('error', 'success');
-    // editTaskStatusEl.parentElement.classList.add('error');
     
 });
 
@@ -861,52 +786,6 @@ editTaskForm.addEventListener('submit', function(event) {
         // editTaskForm.submit();
         location.reload(true);
     }
-    // if(isFormValid) {
-    //     // addNewTaskForm.submit(); // commented out to prevent form from being submitted
-    //     // Getting the values of the inputs
-    //     document.getElementById('saveButton').addEventListener('click', function(event) {
-    //         if (event.target.classList.contains("edit-button")) {
-    //             const parentTask = event.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
-    //             console.log(parentTask);
-    //                 // console.log(parentTask)
-    //                 // Get the taskId of the parent Task.
-    //                 const taskId = Number(parentTask.dataset.taskId);
-    //                 console.log(taskId);
-    //                 // Get the task from the TaskManager using the taskId
-    //                 const task = taskManager.getTaskById(taskId);
-    //                 console.log(task);
-    //                 // Updating task element values
-                    
-    
-    //                 // task.name = editTaskNameEl.value;
-    //                 // task.description = editTaskDescriptionEl.value;
-    //                 // task.assignedTo = editAssignedToEl.value;
-    //                 // task.dueDate = editTaskDueDateEl.value;
-    //                 // task.status = editTaskStatusEl.value;
-    //                 // task.priority = editTaskPriorityEl.value;
-            
-    //                 console.log(taskManager.tasks); // to check tasks
-                    
-    //                 // editTaskForm.submit();
-
-
-    //                 // Save the tasks to localStorage
-    //                 // taskManager.save();
-            
-    //                 // Render the tasks
-    //                 // taskManager.render();
-                    
-    //         }
-            
-    //     })
-
-            // if(isFormValid) {
-            //     editTaskForm.submit();
-            // }
-    
-
-        
-        
 
     
     
@@ -985,9 +864,6 @@ editTaskForm.addEventListener('input', debounce(function (event) {
         case 'editAssignedTo':
             editCheckAssignedTo();
             break;
-        // case 'editTaskListName':
-        //     editCheckListName();
-        //     break;
         case 'editTaskDueDate':
             editCheckDueDate();
             break;

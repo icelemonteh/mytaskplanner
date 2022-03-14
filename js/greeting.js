@@ -1,7 +1,14 @@
 const personalisedForm = document.querySelector('.personalisedForm');
 const personalisedForm2 = document.querySelector('.personalisedForm2');
-const personalisedButton = document.querySelector('#personalisedButton');
+const personalisedFormButton = document.querySelector('#personalisedFormButton');
 const displayName = document.querySelector('.userName');
+
+
+personalisedFormButton.addEventListener("click", function() {
+    document.querySelector('.overlay').removeAttribute('style');
+    document.querySelector(".popup").style.display = "block";
+});
+
 
 personalisedForm.addEventListener("submit", function(event) {
     // prevent the form from submitting
@@ -18,7 +25,8 @@ personalisedForm.addEventListener("submit", function(event) {
     }
 
     let personalisedName = capitalizeFirstLetter(personalNameEl.value);
-    localStorage.setItem("user", personalisedName);
+        localStorage.setItem("user", personalisedName);
+
 
     // displayName.innerHTML = `Hey ${personalisedName}`;
     loadUser();
@@ -27,37 +35,39 @@ personalisedForm.addEventListener("submit", function(event) {
     // // close modal form
     $(".overlay").hide();
 
-    // // personalisedForm.submit(); // submits form
-    // // location.reload(true); // to reload page after submission
+    // personalisedForm.submit(); // submits form
+    personalisedCityEl.value = "";
+    personalNameEl.value = "";
+    // location.reload(true); // to reload page after submission
 });
 
-personalisedForm2.addEventListener("submit", function(event) {
-    // prevent the form from submitting
-    event.preventDefault();
-    // saveSetting();
+// personalisedForm2.addEventListener("submit", function(event) {
+//     // prevent the form from submitting
+//     event.preventDefault();
+//     // saveSetting();
     
-    // Getting the values of the inputs
-    let personalisedNameEl = document.querySelector('#personalisedName2');
-    const personalisedCityEl = document.querySelector('#personalisedCity2');
+//     // Getting the values of the inputs
+//     let personalisedNameEl = document.querySelector('#personalisedName2');
+//     const personalisedCityEl = document.querySelector('#personalisedCity2');
 
     
     
-    if(personalisedCityEl.value != "") {
-        let weatherCity = personalisedCityEl.value;
-        localStorage.setItem("city", weatherCity);
-    }
+//     if(personalisedCityEl.value != "") {
+//         let weatherCity = personalisedCityEl.value;
+//         localStorage.setItem("city", weatherCity);
+//     }
 
-    // let personalisedName = personalisedNameEl.value;
-    let personalisedName = capitalizeFirstLetter(personalisedNameEl.value);
-    localStorage.setItem("user", personalisedName);
+//     // let personalisedName = personalisedNameEl.value;
+//     let personalisedName = capitalizeFirstLetter(personalisedNameEl.value);
+//     localStorage.setItem("user", personalisedName);
 
 
-    // // close modal form
-    $(".personalisedForm2").modal('hide');
+//     // // close modal form
+//     $(".personalisedForm2").modal('hide');
 
-    // personalisedForm2.submit(); // submits form
-    location.reload(true); // to reload page after submission
-});
+//     // personalisedForm2.submit(); // submits form
+//     location.reload(true); // to reload page after submission
+// });
 
 
 function capitalizeFirstLetter(string) {
