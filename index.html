@@ -30,53 +30,6 @@
         </div>
       </nav>
           
-          </div>
-         </div>
-        </div>
-    </div>
-    
-
-
-
-    <!-- Modal -->
-    <form class="personalisedForm2">
-      <div class="modal fade" id="personalisedForm2" tabindex="-1" role="dialog" aria-labelledby="personalisedFormTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="personalisedFormTitle">Personalise & make it yours!</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <input type="text" class="type-2" id="personalisedName2" placeholder="Name" />
-              <input type="text" class="type-2" id="personalisedCity2" placeholder="City" />
-            </div>
-            <!-- <div class="modal-footer"> -->
-              <!-- <button type="submit" class="personalisedButton" id="personalisedButton">Save</button> -->
-              <button type="submit" class="personalisedButton2" id="personalisedButton2" name="personalisedButton2">Save</button>
-            <!-- </div> -->
-            </div>
-        </div>
-      </div>
-    </form>
-    
-
-  <form class="personalisedForm">
-    <!-- <div class="overlay" style="display:none"> -->
-    <div class="overlay" style="display:none">
-      <div class="popup"  id="popup">
-        <!-- <div onclick="CloseModal()" class="CloseIcon">&#10006;</div> -->
-        <button type="button" id="close">&times;</button>
-        <h2>Personalise and make it yours</h2>
-        <input type="text" class="type-2" id="personalisedName" placeholder="Name" />
-        <input type="text" class="type-2" id="personalisedCity" placeholder="City" />
-        <button type="submit" class="personalisedButton" id="personalisedButton" name="personalisedButton">Save</button>
-      </div>
-    </div>
-  </form>
-
 
 
 
@@ -90,142 +43,136 @@
         <!-- Task Card -->
         <div class="row justify-content-center tasks-container">
           <div class="col-md-12">
-              <div class="card-hover-shadow-2x mb-3 card">
-                  <div class="card-header-tab card-header ">
-                    <div class="d-flex justify-content-between align-items-center">          
-                      <div class="card-header-title text-capitalize font-weight-bold" id="listName"><h5>To-Do List
-                      <br><span id="date-element"></span></h5>
-                      </div>
+            <div class="card-hover-shadow-2x mb-3 card">
+                <div class="card-header-tab card-header ">
+                  <div class="d-flex justify-content-between align-items-center">          
+                    <div class="card-header-title text-capitalize font-weight-bold" id="listName"><h5>To-Do List
+                    <br><span id="date-element"></span></h5>
+                    </div>
 
-                      
-                        <!-- Task button -->
-                        <!-- Add to List Button trigger modal -->
-                      <div class="card-header-title">
-                        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#addToListModal">
-                          Add New Task
-                        </button>
-                      </div>
-                      
-                        <!-- Add to List Form Modal (MAIN FORM) -->
-                      <div class="modal fade" id="addToListModal" tabindex="-1" role="dialog" aria-labelledby="addToListModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="addToListModal">Add New Task</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">
-                              <!-- Add to List Bootstrap form (MAIN FORM) -->
-                              <form id="addToListTaskForm" method="POST">
+                    
+                    <!-- Task button -->
+                    <!-- Add to List Button trigger modal -->
+                    <div class="card-header-title">
+                      <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#addToListModal">
+                        Add New Task
+                      </button>
+                    </div>
+                    
+                    <!-- Add to List Form Modal (MAIN FORM) -->
+                    <div class="modal fade" id="addToListModal" tabindex="-1" role="dialog" aria-labelledby="addToListModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="addToListModal">Add New Task</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <!-- Add to List Bootstrap form (MAIN FORM) -->
+                            <form id="addToListTaskForm" method="POST">
 
-                                <!-- Form: Task Name -->
+                              <!-- Form: Task Name -->
+                              <div class="form-group required form-field">
+                                  <label for="listTaskName" class="col-form-label">Task Name</label>
+                                  <input type="text" class="form-control " id="listTaskName" placeholder="Task Name">
+                                  <small></small>
+                                </div>
+
+                                <!-- Form: Description -->
                                 <div class="form-group required form-field">
-                                    <label for="listTaskName" class="col-form-label">Task Name</label>
-                                    <input type="text" class="form-control " id="listTaskName" placeholder="Task Name">
+                                  <label for="listTaskDescription" class="col-form-label">Description</label>
+                                    <textarea class="form-control" id="listTaskDescription" placeholder="Description"></textarea>
+                                    <small></small>
+                                </div>
+
+                                <div class="form-row">
+
+                                  <!-- Form: Assigned To -->
+                                  <div class="form-group required form-field col-md-6">
+                                    <label for="listAssignedTo" class="col-form-label">Assigned to</label>
+                                    <input type="text" class="form-control" id="listAssignedTo" placeholder="Assigned to">
                                     <small></small>
                                   </div>
 
-                                  <!-- Form: Description -->
-                                  <div class="form-group required form-field">
-                                    <label for="listTaskDescription" class="col-form-label">Description</label>
-                                      <textarea class="form-control" id="listTaskDescription" placeholder="Description"></textarea>
-                                      <small></small>
+                                  <!-- Form: Due Date -->
+                                  <div class="form-group required form-field col-md-6">
+                                    <label for="listTaskDueDate" class="col-form-label">Due Date</label>
+                                    <input type="date" class="form-control" id="listTaskDueDate" value="Due date">
+                                    <small></small>
                                   </div>
-
-                                  <div class="form-row">
-
-                                    <!-- Form: Assigned To -->
-                                    <div class="form-group required form-field col-md-6">
-                                      <label for="listAssignedTo" class="col-form-label">Assigned to</label>
-                                      <input type="text" class="form-control" id="listAssignedTo" placeholder="Assigned to">
-                                      <small></small>
-                                    </div>
-
-                                    <!-- Form: Due Date -->
-                                    <div class="form-group required form-field col-md-6">
-                                      <label for="listTaskDueDate" class="col-form-label">Due Date</label>
-                                      <input type="date" class="form-control" id="listTaskDueDate" value="Due date">
-                                      <small></small>
-                                    </div>
-                                  </div>
-
-                                  
-                                  <div class="form-row">
-                                    <!-- Form: Status -->
-                                        
-                                    <div class="form-group required form-field col-md-6">
-                                      <label for="listTaskStatus" class="col-form-label">Status</label>
-                                      <select class="form-control" id="listTaskStatus">
-                                        <option value="">Status option</option>
-                                        <option value="To Do">To Do</option>
-                                        <option value="In Progress">In Progress</option>
-                                        <option value="Review">Review</option>
-                                        <option value="Done">Done</option>
-                                      </select>
-                                      <small></small>
-                                    </div>
-
-                                    <!-- Form: Priority Options -->
-
-                                    <div class="form-group form-field col-md-6">
-                                      <label for="listTaskPriority" class="col-form-label">Priority</label>
-                                      <select class="form-control" id="listTaskPriority">
-                                        <option value="">Priority option</option>             
-                                        <option value="Priority 1"><span class="emoji">🟥</span> Priority 1</option>
-                                        <option value="Priority 2"><span class="emoji">🟧</span> Priority 2</option>
-                                        <option value="Priority 3"><span class="emoji">🟦</span> Priority 3</option>
-                                        <option value="Priority 4"><span class="emoji">🟩</span> Priority 4</option>
-                                      </select>
-                                      <div class="invalid-feedback">Example invalid custom select feedback</div>
-                                    </div>
-                                  </div>
-
+                                </div>
 
                                 
+                                <div class="form-row">
+                                  <!-- Form: Status -->
+                                      
+                                  <div class="form-group required form-field col-md-6">
+                                    <label for="listTaskStatus" class="col-form-label">Status</label>
+                                    <select class="form-control" id="listTaskStatus">
+                                      <option value="">Status option</option>
+                                      <option value="To Do">To Do</option>
+                                      <option value="In Progress">In Progress</option>
+                                      <option value="Review">Review</option>
+                                      <option value="Done">Done</option>
+                                    </select>
+                                    <small></small>
+                                  </div>
+
+                                  <!-- Form: Priority Options -->
+
+                                  <div class="form-group form-field col-md-6">
+                                    <label for="listTaskPriority" class="col-form-label">Priority</label>
+                                    <select class="form-control" id="listTaskPriority">
+                                      <option value="">Priority option</option>             
+                                      <option value="Priority 1"><span class="emoji">🟥</span> Priority 1</option>
+                                      <option value="Priority 2"><span class="emoji">🟧</span> Priority 2</option>
+                                      <option value="Priority 3"><span class="emoji">🟦</span> Priority 3</option>
+                                      <option value="Priority 4"><span class="emoji">🟩</span> Priority 4</option>
+                                    </select>
+                                    <div class="invalid-feedback">Example invalid custom select feedback</div>
+                                  </div>
+                                </div>
+
+
+                              
 
                               <div class="modal-footer">
                                 <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
                                 <button name="ResetForm" class="btn btn-secondary" id="ResetForm" type="reset">Reset</button>
                                 <button class="btn btn-primary" type="submit" >Submit</button>
                               </div>
-                              </form>
-                            </div>
+                            </form>
                           </div>
                         </div>
                       </div>
-                      </div>
-                      
-                      
-
+                    </div>
                   </div>
-                  <div class="scroll-area-sm">
-                      <perfect-scrollbar class="ps-show-limits">
-                          <div style="position: static;" class="ps ps--active-y">
-                              <div class="ps-content">
-                                
-
-                                  <ul class=" list-group list-group-flush tasksList" id="tasksList"></ul>  
-                                  <!-- add the empty state here. Used to display message when task list is empty -->
-                                  <div class="empty-state">
-                                    <h4 class="empty-state__title">Welcome! 😎</h4>
-                                    <p class="empty-state__description">Start adding tasks by clicking "Add New Task" button</p>
-                                    <img src="./images/tasklist.png" alt="">
-                                  </div>
-                                  <!-- end -->
-
-                          </div>
+                    
+                    
+                </div>
+                <!-- vertical scroll added to task list container -->
+                <div class="scroll-area-sm">
+                  <perfect-scrollbar class="ps-show-limits">
+                    <div style="position: static;" class="ps ps--active-y">
+                      <div class="ps-content">
+                        <ul class=" list-group list-group-flush tasksList" id="tasksList"></ul>  
+                        <!-- adding empty state. Used to display message when task list is empty -->
+                        <div class="empty-state">
+                          <h4 class="empty-state__title">Welcome! 😎</h4>
+                          <p class="empty-state__description">Start adding tasks by clicking "Add New Task" button</p>
+                          <img src="./images/tasklist.png" alt="">
+                        </div>
+                        <!-- end -->
                       </div>
+                    </div>
                   </perfect-scrollbar>
-              </div>
-
-
-
-                  
-              </div>
+                </div>
+                
+            </div>
           </div>
-      </div>
+        </div>
       
       <div class="widgets">
         <div class="weatherCard">
@@ -253,7 +200,7 @@
           </div>
         </div>
 
-        <div class="weatherCard">
+        <div class="quoteCard">
           <div class="container">
             <p id="quoteContent">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas,
@@ -274,99 +221,27 @@
     
     
     <footer>
-      <!-- <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-circle-up fa-lg"></i></button> -->
-      <div class="created">Created by: Bhavani & Joanna</button>
+      <!-- <div class="created">Created by: Bhavani & Joanna</div> -->
       <a href="https://www.flaticon.com/free-icons/meal" target="_blank" class="listIcon" title="meal icons">Meal icons created by Flat Icons - Flaticon</a>
     </footer>
 
-    <!-- Add New Task Form Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle">Add New Task</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <!-- Bootstrap form -->
-            <form id="newTaskForm" method="POST">
-              
-              <!-- Form: Task Name -->
-              <div class="mb-3 form-field error">
-                <label for="newTaskName" class="col-form-label" style="display:None">Task Name2</label>
-                <input type="text" class="form-control" name="taskName" id="newTaskName" placeholder="Task Name2">
-                <small></small>
-              </div>
+    <!-- Modal Personalisation Form-->
+   
 
-              <!-- Form: Description -->
-              <div class="mb-3 form-field error">
-                <label for="newTaskDescription" class="col-form-label" style="display:none">Description</label>
-                <textarea class="form-control" name="taskDescription" id="newTaskDescription" placeholder="Description"></textarea>
-                <small></small>
-              </div>
-
-              <!-- Form: Assigned To -->
-              <div class="mb-3 form-field error">
-                <label for="newAssignedTo" class="col-form-label" style="display:none">Assigned to</label>
-                <input type="text" class="form-control" id="newAssignedTo" placeholder="Assigned to">
-                <small></small>
-              </div>
-
-              <!-- Form: Label -->
-              <div class="mb-3 form-field error">
-                <label for="newListName" class="col-form-label" style="display:none">List Name</label>
-                <input type="text" class="form-control" id="newListName" placeholder="List Name">
-                <small></small>
-              </div>
-
-              <!-- Form: Select Date -->
-              <div class="mb-3 form-field error">
-                <label for="newTaskDueDate" style="display:none">Due Date</label>
-                <input type="date" class="form-control" id="newTaskDueDate" value="Due date" placeholder="Due Date">
-                <small></small>
-              </div>
-
-              
-              <!-- Form: Status -->
-                      
-              <div class="form-group">
-                <label for="newTaskStatus" style="display: none">Select status:</label>
-                <select class="form-control" id="newTaskStatus">
-                  <option value="">Status option</option>
-                  <option value="To Do">To Do</option>
-                  <option value="In Progress">In Progress</option>
-                  <option value="Review">Review</option>
-                  <option value="Done">Done</option>
-                </select>
-              </div>
-
-              <!-- Form: Priority Options -->
-
-
-              <div class="form-group">
-                <label for="newTaskPriority" style="display: none">Select priority:</label>
-                <select class="form-control" id="newTaskPriority">
-                  <option value="">Priority option</option>             
-                  <option value="Priority 1"><span class="emoji">🟥</span> Priority 1</option>
-                  <option value="Priority 2"><span class="emoji">🟧</span> Priority 2</option>
-                  <option value="Priority 3"><span class="emoji">🟦</span> Priority 3</option>
-                  <option value="Priority 4"><span class="emoji">🟩</span> Priority 4</option>
-                </select>
-                <div class="invalid-feedback">Example invalid custom select feedback</div>
-              </div>
-
-            <div class="modal-footer">
-              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
-              <button name="resetButton" class="btn btn-secondary" id="resetButton" type="reset">Reset</button>
-              <button class="btn btn-primary" type="submit" id="newSubmitButton">Submit</button>
-            </div>
-            </form>
-          </div>
+    <form class="personalisedForm">
+      <div class="overlay" style="display:none">
+        <div class="popup"  id="popup">
+          <!-- <div onclick="CloseModal()" class="CloseIcon">&#10006;</div> -->
+          <button type="button" id="close">&times;</button>
+          <h2>Personalise and make it yours</h2>
+          <input type="text" class="type-2" id="personalisedName" placeholder="Name" />
+          <input type="text" class="type-2" id="personalisedCity" placeholder="City" />
+          <button type="submit" class="personalisedButton" id="personalisedButton" name="personalisedButton">Save</button>
         </div>
       </div>
-    </div>
+    </form>
+
+  
 
     <!-- EDIT FORM  -->
     <!-- Modal -->
@@ -417,7 +292,6 @@
           <div class="form-row">
 
             <!-- Form: Status -->
-                                      
             <div class="form-group required form-field col-md-6">
               <label for="editTaskStatus" class="col-form-label">Status</label>
               <select class="form-control" id="editTaskStatus">
@@ -444,7 +318,6 @@
               <div class="invalid-feedback">Example invalid custom select feedback</div>
             </div>
           </div>
-                                                      
 
         <div class="modal-footer">
           <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->

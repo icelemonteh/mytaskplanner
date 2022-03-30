@@ -9,9 +9,7 @@ const createTaskHtml = (name, description, assignedTo, dueDate, status, priority
     <div class="widget-content p-0">
         <div class="widget-content-wrapper">
             <div class="widget-content-left mr-2" id="widget-content-left-${id}">
-                <span><i class='fa fa-bars drag-icon '></i></span>
                 <div class="custom-checkbox custom-control ml-3" id="custom-checkbox-${id}"> <input class="custom-control-input" id="exampleCustomCheckbox${id} newTaskItem" type="checkbox"><label class="custom-control-label done-checkbox ${status != 'Done' ? 'visible' : 'invisible'}" for="exampleCustomCheckbox${id}"></label></div>
-                
             </div>
             <div class="widget-content-right">
                 <div class="widget-heading">
@@ -21,10 +19,9 @@ const createTaskHtml = (name, description, assignedTo, dueDate, status, priority
                     
                     <div class="button-icons">
                         <h4><div class="badge">
-                        
                         <div class="badge badge-pill badge-info ${status != 'Done' ? 'invisible' : 'visible'}">Done</div>
-                        <span class="fa fa-edit fa-lg  edit-icon edit-button icons ${status != 'Done' ? 'visible' : 'visible'}" data-toggle="modal" id="editButton${id}" data-target="#editTaskButtonModal" data-task-id=${id}></span>
-                        <span class="fa fa-trash fa-lg trash-icon icons delete-button ${status != 'Done' ? 'visible' : 'visible'}" id="deleteButton${id}" data-toggle="modal" data-target=""></span>
+                        <span class="fa fa-edit fa-lg  edit-icon icons edit-button" data-toggle="modal" id="editButton${id}" data-target="#editTaskButtonModal" data-task-id=${id}></span>
+                        <span class="fa fa-trash fa-lg trash-icon icons delete-button" id="deleteButton${id}" data-toggle="modal" data-target=""></span>
                         <span class="fa fa-chevron-down fa-md chevron-icon icons rotate" id="downArrow" data-toggle="collapse" data-target="#collapse${id}" aria-expanded="false" aria-controls="collapse${id}"></span></badge></h4>
                     </div>
                 </div>

@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&family=Work+Sans:wght@400;500;800&display=swap');
 
-/* .header {
-
-    background-color: rgb(120, 161, 238);
-    text-align: center;
-    width: 100vw;
-
-} */
 
 * {
     /* font-family: 'Raleway', 'sans-serif'; */
@@ -44,39 +37,6 @@
     /* color: white; */
 }
 
-/* .side-menu {
-    display: flex;
-    flex-direction: column;
-    white-space: nowrap;
-    a {
-        text-decoration: none;
-        color: var(--theme-color);
-        display: flex;
-        align-items: center;
-        font-weight: 400;
-        padding: 10px;
-        font-size: 14px;
-        border-radius: 6px;
-        transition: 0.3s;
-        &:hover {
-        background-color: var(--hover-menu-bg);
-        }
-    }
-    svg {
-        width: 16px;
-        margin-right: 8px;
-    }
-}
-
-.updates {
-    position: relative;
-    top: 0;
-    right: 0;
-    margin-left: auto;
-    width: 18px;
-    height: 18px;
-    font-size: 11px;
-} */
 
 /* top navigation bar */
 .navbar {
@@ -148,29 +108,6 @@ form {
     color: rgb(253, 251, 251);
     background-color: #4e4e4ea2;
 }
-
-/* smooth scrolling to top button */
-#myBtn {
-    display: none; /* Hidden by default */
-    position: fixed; /* Fixed/sticky position */
-    bottom: 20px; /* Place the button at the bottom of the page */
-    right: 30px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
-    border: none; /* Remove borders */
-    outline: none; /* Remove outline */
-    background-color: rgb(23, 107, 233);; /* Set a background color */
-    color: white; /* Text color */
-    cursor: pointer; /* Add a mouse pointer on hover */
-    padding: 8px; /* Some padding */
-    padding-left: 12px;
-    padding-right: 12px;
-    border-radius: 10px; /* Rounded corners */
-    font-size: 20px; /* Increase font size */
-}
-    
-#myBtn:hover {
-background-color: rgb(2, 71, 173); /* Add a darker background on hover */
-}    
 
 html {
     scroll-behavior: smooth;
@@ -323,9 +260,9 @@ li.over {
     display: grid;
 }
 
-/* weather card*/
+/* Weather & Quote card*/
 
-.weatherCard {
+.weatherCard, .quoteCard {
     background: #dbdbdbec;
     color: rgb(43, 42, 42);
     padding: 1.2em;
@@ -492,16 +429,6 @@ input {
     box-shadow:0 0 4px rgba(0,0,0,0.5);
 }
 
-.personalisedButton2 {
-    border-radius: 8px;
-    border: 1px solid grey;
-    padding: 8px;
-    margin: 10px auto;
-    text-align: center;
-    background-color: #4e4e4e;
-    color: white;
-    width: 150px;
-}
 
 /* media query */
 @media only screen and (max-width: 800px)  {

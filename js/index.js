@@ -30,45 +30,15 @@ taskManager.load();
 // Render the loaded tasks to the page
 taskManager.render();
 
-
-// scroll to top button
-//Get the button
-const mybutton = document.getElementById("myBtn");
-
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-  behavior: "smooth";
-}
-
 // capitalise first letter
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 // Validating form
-const addNewTaskForm = document.getElementById('newTaskForm'); 
+
 const editTaskForm = document.getElementById('editTaskForm'); 
 const addToListTaskForm = document.getElementById('addToListTaskForm'); 
-const newTaskNameEl = document.getElementById('newTaskName');
-const newTaskDescriptionEl = document.getElementById('newTaskDescription');
-const newTaskAssignedToEl = document.getElementById('newAssignedTo');
-const newTaskDueDateEl = document.getElementById('newTaskDueDate');
-const newListNameEl = document.getElementById('newListName');
-const newTaskStatusEl = document.getElementById('newTaskStatus');
-const newTaskPriorityEl = document.getElementById('newTaskPriority');
 const addListTaskNameEl = document.getElementById('listTaskName');
 const addListTaskDescriptionEl = document.getElementById('listTaskDescription');
 const addListAssignedToEl = document.getElementById('listAssignedTo');
@@ -90,7 +60,7 @@ const errorMsgEl = document.getElementById("errorMsg");
 // The following isRequired() function returns true if the input argument is empty:
 const isRequired = value => value === '' ? false : true; // ternary operator - if empty, return false & if not empty, return true
 
-// The following isMinLength() function returns false if the length argument is not between min and max argument:
+// The following isBetween() function returns false if the length argument is not between min and max argument:
 const isBetween = (length, min, max) => length < min || length > max ? false : true;
 
 // The following isMinLength() function returns false if the length argument is not more than the min argument:
@@ -99,7 +69,7 @@ const isMinLength = (length, min) => length < min ? false : true;
 // The following isMaxLength() function returns false if the length argument is more than the max argument:
 const isMaxLength = (length, max) => length > max ? false : true;
 
-// The following inPast() function returns false if date has passed
+// The following isPast() function returns false if date has passed
 const isPast = (firstDate, secondDate) => firstDate > secondDate ? false : true;
 
 // showError functions to show error / success
@@ -130,175 +100,7 @@ const showSuccess = (input) => {
 }
 
 
-// VALIDATING ADD NEW TASK FORM
-const newCheckTaskName = () => {
-    let valid = false;
-    const min = 8;
-    const max = 30;
-    const taskName = newTaskNameEl.value.trim();
 
-    if(!isRequired(taskName)) {
-        showError(newTaskNameEl, 'Task name cannot be empty.');
-    } else if (!isBetween(taskName.length, min, max)) {
-        showError(newTaskNameEl, `Task name must be between ${min} and ${max} characters.`)
-    } else {
-        showSuccess(newTaskNameEl);
-        valid = true;
-    }
-    return valid;
-};
-
-const newCheckTaskDescription = () => {
-    let valid = false;
-    const min = 15;
-    const taskDescription = newTaskDescriptionEl.value.trim();
-
-    if(!isRequired(taskDescription)) {
-        showError(newTaskDescriptionEl, 'Description cannot be empty.');
-    } else if (!isMinLength(taskDescription.length, min)) {
-        showError(newTaskDescriptionEl, `Description must be more than ${min} characters.`)
-    } else {
-        showSuccess(newTaskDescriptionEl);
-        valid = true;
-    }
-    return valid;
-};
-
-const newCheckAssignedTo = () => {
-    let valid = false;
-    const min = 8;
-    const taskAssignedTo = newTaskAssignedToEl.value.trim();
-
-    if(!isRequired(taskAssignedTo)) {
-        showError(newTaskAssignedToEl, 'Name cannot be empty.');
-    } else if (!isMinLength(taskAssignedTo.length, min)) {
-        showError(newTaskAssignedToEl, `Name must be more than ${min} characters.`)
-    } else {
-        showSuccess(newTaskAssignedToEl);
-        valid = true;
-    }
-    return valid;
-};
-
-const newCheckListName = () => {
-    let valid = false;
-    const newListName = newListNameEl.value.trim();
-
-    if(!isRequired(newListName)) {
-        showError(newListNameEl, 'List name cannot be empty.');
-    } else {
-        showSuccess(newListNameEl);
-        valid = true;
-    }
-    return valid;
-};
-
-const newCheckDueDate = () => {
-    let valid = false;
-    const newTaskDueDate = newTaskDueDateEl.value;
-    
-    // Getting today's date for comparison & reformatting it to yyyy-mm-dd
-    let todayDate = new Date();
-    let dd = String(todayDate.getDate()).padStart(2, '0');
-    let mm = String(todayDate.getMonth() + 1).padStart(2, '0'); //January is 0!
-    let yyyy = todayDate.getFullYear();
-    todayDate = yyyy + '-' + mm + '-' + dd;
-
-    if(!isRequired(newTaskDueDate)) {
-        showError(newTaskDueDateEl, 'Due date cannot be empty.');
-    } else if (!isPast(todayDate, newTaskDueDate)) {
-        showError(newTaskDueDateEl, `Due date cannot be in the past.`)
-    } else {
-        showSuccess(newTaskDueDateEl);
-        valid = true;
-    }
-    return valid;
-};
-
-
-
-// resetting form's error message and border colour
-addNewTaskForm.addEventListener('reset', function() {
-    
-    newTaskNameEl.parentElement.querySelector('small').innerText = '';
-    newTaskNameEl.parentElement.classList.remove('error', 'success');
-    newTaskNameEl.parentElement.classList.add('error');
-    
-    newTaskDescriptionEl.parentElement.querySelector('small').innerText = '';
-    newTaskDescriptionEl.parentElement.classList.remove('error', 'success');
-    newTaskDescriptionEl.parentElement.classList.add('error');
-    
-    newTaskAssignedToEl.parentElement.querySelector('small').innerText = '';
-    newTaskAssignedToEl.parentElement.classList.remove('error', 'success');
-    newTaskAssignedToEl.parentElement.classList.add('error');
-    
-    newListNameEl.parentElement.querySelector('small').innerText = '';
-    newListNameEl.parentElement.classList.remove('error', 'success');
-    newListNameEl.parentElement.classList.add('error');
-    
-    newTaskDueDateEl.parentElement.querySelector('small').innerText = '';
-    newTaskDueDateEl.parentElement.classList.remove('error', 'success');
-    newTaskDueDateEl.parentElement.classList.add('error');
-    
-    
-});
-
-addNewTaskForm.addEventListener('submit', function(event) {
-    // prevent the form from submitting
-    event.preventDefault();
-
-
-    // // Validate form
-    // newValidateTaskForm();
-
-    // validate form
-    let isTaskNameValid = newCheckTaskName(),
-        isTaskDescriptionValid = newCheckTaskDescription(),
-        isAssignedToValid = newCheckAssignedTo(),
-        isListNameValid = newCheckListName(),
-        isDueDateValid = newCheckDueDate();
-    
-    // submit to server if the form is valid
-    let isFormValid = isTaskNameValid && 
-        isTaskDescriptionValid && isAssignedToValid &&
-        isListNameValid && isDueDateValid;
-
-    if(isFormValid) {
-        // addNewTaskForm.submit(); // commented out to prevent form from being submitted
-        // Getting the values of the inputs
-        const name = capitalizeFirstLetter(newTaskNameEl.value);
-        const description = capitalizeFirstLetter(newTaskDescriptionEl.value);
-        const assignedTo = capitalizeFirstLetter(newTaskAssignedToEl.value);
-        const listName = capitalizeFirstLetter(newListNameEl.value);
-        const dueDate = capitalizeFirstLetter(newTaskDueDateEl.value);
-        const status = capitalizeFirstLetter(newTaskStatusEl.value);
-        const priority = capitalizeFirstLetter(newTaskPriorityEl.value);
-
-        // Adding task to the taskManager
-        taskManager.addTask(name, description, assignedTo, listName, dueDate, status, priority);
-        
-
-
-        // Render the tasks
-        taskManager.render();
-
-        console.log(taskManager.tasks);
-
-        // Clear form
-        newTaskNameEl.value = '';
-        newTaskDescriptionEl.value = '';
-        newTaskAssignedToEl.value = '';
-        newListNameEl.value = '';
-        newTaskDueDateEl.value = '';
-        newTaskStatusEl.value = 'To Do';
-        newTaskPriorityEl.value = '';
-    }
-    
-
-
-    
-
-});
 
 
 
@@ -691,12 +493,12 @@ const editCheckDueDate = () => {
 
 const editListCheckStatus = () => {
     let valid = false;
-    const taskStatus = editTaskStatusEl .value.trim();
+    const taskStatus = editTaskStatusEl.value.trim();
 
     if(!isRequired(taskStatus)) {
         showError(editTaskStatusEl , 'Please select an option.');
     } else {
-        showSuccess(editTaskStatusEl );
+        showSuccess(editTaskStatusEl);
         valid = true;
     }
     return valid;
@@ -807,27 +609,7 @@ const debounce = (fn, delay = 500) => {
     };
 };
 
-// Add New Task Form input check
-// Passing the input event handler to the debounce() function to debounce it:
-addNewTaskForm.addEventListener('input', debounce(function (event) {
-    switch (event.target.id) {
-        case 'newTaskName':
-            newCheckTaskName();
-            break;
-        case 'newTaskDescription':
-            newCheckTaskDescription();
-            break;
-        case 'newAssignedTo':
-            newCheckAssignedTo();
-            break;
-        case 'newTaskDueDate':
-            newCheckDueDate();
-            break;
-        case 'newListName':
-            newCheckListName();
-            break;
-    }
-}));
+
 
 // Add to List Task Form input check
 // Passing the input event handler to the debounce() function to debounce it:
