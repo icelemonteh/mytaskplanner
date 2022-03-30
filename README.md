@@ -1,5 +1,5 @@
 # To-do List App
-The purpose of this project is to create a functional and user-friendly to-do list app and be able to add tasks, edit tasks and delete tasks as required. We have added empty message for when to-do list is empty and popup page to be displayed when it first loads to personalise the page.
+The purpose of this project is to create a functional and user-friendly to-do list app and be able to add tasks, edit tasks and delete tasks as required.Empty message for when to-do list is empty and popup page are created to be displayed when it first loads to prompt user to personalise the page.
 
 It consists of 3 sprints which are as follows:
 - Sprint 1: Wireframe & layout components
